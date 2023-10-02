@@ -52,7 +52,7 @@ actually exists and would pick the *last* matching airline in the openflights da
 ## Acknowledgments
 
 As a first step in its execution, the script will download airlines 
-and planes databases provided by (Openflights)[https://openflights.org/data.html].
+and planes databases provided by [Openflights](https://openflights.org/data.html).
 
 We are very thankful to OpenFlights for maintaining and publishing the data.
 
