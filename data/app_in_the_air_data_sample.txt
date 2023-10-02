@@ -1,0 +1,58 @@
+user: 123456789
+subscribers:
+
+devices:
+iPhone13,3;aita;ios;8.6.9;GB;2017-09-21 21:58:02;2023-09-13 09:34:05.361805
+
+accounts:
+AccountProvider.POINTS_COM;example@example.com;None;None;None
+AccountProvider.GOOGLE;example@example.com;1;John Doe;https://example.com/photo.jpg
+settings:
+country: GB
+currency: GBP
+work:
+full name: John Doe
+display email: example@example.com
+emails parsing: []
+
+trips:
+Ownership.MINE;2018-04-11T12:50:00;2018-04-11T14:45:00;PRG;LCY;2018-03-20T22:49:16;2022-10-26T09:53:24.733993;None
+flights:
+None;None;XXXXXX;None;None;None;google-calendar;BA;7338;E90;PRG;LCY;2018-04-11T12:50:00;2018-04-11T14:45:00;2018-04-11T14:50:00;2018-04-11T15:45:00;2018-03-20T22:49:16
+hotels:
+
+rental cars:
+
+expenses:
+
+
+Ownership.MINE;2022-03-20T11:10:00;2022-03-20T13:40:00;WMI;STN;2022-03-11T12:17:18;2022-10-26T10:19:48.271596;None
+flights:
+None;None;XXXXXX;None;None;None;gmail_parsing_tokenizer;FR;2282;73H;WMI;STN;2022-03-20T11:10:00;2022-03-20T13:40:00;2022-03-20T12:10:00;2022-03-20T13:40:00;2022-03-11T12:17:18
+hotels:
+
+rental cars:
+
+expenses:
+
+
+Ownership.MINE;2018-02-04T04:00:00;2018-02-04T14:10:00;SFO;LHR;2018-01-10T20:15:41;2022-10-26T10:43:13.432404;None
+flights:
+BUSINESS (C);11G;XXXXXX;1111111111111;None;None;gmail_parsing_concur.yaml;VS;42;346;SFO;LHR;2018-02-04T04:00:00;2018-02-04T14:10:00;2018-02-03T20:00:00;2018-02-04T14:10:00;2018-01-10T20:15:41
+hotels:
+
+rental cars:
+
+expenses:
+
+Ownership.MINE;2018-07-13T08:15:00;2018-07-13T13:50:00;LCY;EVN;2018-06-30T21:57:43;2022-10-26T20:51:53.571897;None
+flights:
+ECONOMY;12F;XXXXXX;1111111111111;None;None;gmail_parsing_schema;LH;929;E90;LCY;FRA;2018-07-13T08:15:00;2018-07-13T09:40:00;2018-07-13T09:15:00;2018-07-13T11:40:00;2018-06-30T21:57:43
+ECO LIGHT;11C;XXXXXX;1111111111111;None;None;gmail_parsing_schema;DE;846;321;FRA;EVN;2018-07-13T11:10:00;2018-07-13T13:50:00;2018-07-13T13:10:00;2018-07-13T16:50:00;2018-06-30T21:57:50
+hotels:
+
+rental cars:
+
+expenses:
+
+
