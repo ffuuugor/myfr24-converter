@@ -151,6 +151,17 @@ def convert(flights_df: pd.DataFrame, airlines_df: pd.DataFrame, planes_df: pd.D
     return df
 
 
+def remove_duplicates(flights_df: pd.DataFrame) -> pd.DataFrame:
+    duplicates_found = flights_df[flights_df.duplicated(subset=['Date', 'From', 'To'], keep=False)]
+    if not duplicates_found.empty:
+        logging.warning(f"These are the duplicated/codeshare flights:\n"
+                        f"{duplicates_found.sort_values(by='Date').to_string(index=False)}")
+    else:
+        logging.warning("No duplicates/codeshare have been found.")
+
+    return  flights_df.drop_duplicates(subset=['Date', 'From', 'To'], ignore_index=True)
+
+
 def main():
     parser = argparse.ArgumentParser(
         description='Command-line tool to convert "App in the Air" data export to MyFlighradar24 format'
@@ -168,6 +179,13 @@ def main():
         action="store_true",
         help="Skips downloading external assets. Assets must already be present in the data folder",
     )
+
+    parser.add_argument(
+        "--remove-duplicates",
+        action="store_true",
+        help="Remove duplicated/codeshare flights. These are the flights with the same route on the same date",
+    )
+
     parser.add_argument("-i", "--input", type=str, required=True, help="App in the Air export file path")
     parser.add_argument("-o", "--output", type=str, required=True, help="Output csv path")
 
@@ -180,7 +198,9 @@ def main():
     flights_df = read_flight_data(args.input)
 
     df = convert(flights_df, airlines_df, planes_df)
-    df.to_csv(args.output, index=False)
+    if args.remove_duplicates:
+        df = remove_duplicates(df)
+    df.sort_values(by='Date').to_csv(args.output, index=False)
 
 
 if __name__ == "__main__":
