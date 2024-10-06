@@ -186,7 +186,7 @@ def main():
         help="Remove duplicated/codeshare flights. These are the flights with the same route on the same date",
     )
 
-    parser.add_argument("-i ", "--input", type=str, required=True, help="App in the Air export file path")
+    parser.add_argument("-i", "--input", type=str, required=True, help="App in the Air export file path")
     parser.add_argument("-o", "--output", type=str, required=True, help="Output csv path")
 
     args = parser.parse_args()
