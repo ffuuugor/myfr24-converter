@@ -1,0 +1,168 @@
+:root {
+    --primary-color: #4a90e2;
+    --secondary-color: #f5a623;
+    --background-color: #f0f4f8;
+    --text-color: #333;
+    --error-color: #e74c3c;
+    --link-color: #3498db;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input[type="file"] {
+    margin-bottom: 10px;
+}
+
+.checkbox-container {
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.error {
+    color: red;
+    text-align: center;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+h1 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    color: #666;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    max-width: 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
+    line-height: 1.4;
+}
+
+footer {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 0.875rem;
+    color: #666;
+}
+
+footer p {
+    margin: 0.5rem 0;
+}
+
+footer a {
+    color: var(--link-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 1.5rem;
+    }
+}
+
+.info-section {
+    margin-top: 2rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.info-section summary {
+    padding: 1rem;
+    background-color: #f8f8f8;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.info-section summary:hover {
+    background-color: #f0f0f0;
+}
+
+.info-content {
+    padding: 1rem;
+}
+
+.info-content h3 {
+    color: var(--primary-color);
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.info-content h4 {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.info-content p, .info-content ul {
+    margin-bottom: 1rem;
+}
+
+.info-content code {
+    background-color: #f0f0f0;
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    font-family: monospace;
+}
+
+.info-content pre {
+    background-color: #f0f0f0;
+    padding: 1rem;
+    border-radius: 4px;
+    overflow-x: auto;
+}
+
+.info-content ul {
+    padding-left: 1.5rem;
+}
+
+.info-content li {
+    margin-bottom: 0.5rem;
+}

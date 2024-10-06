@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyFR24 Converter</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>MyFR24 Converter</h1>
+            <p>Convert your "App in the Air" data to MyFlightradar24 format</p>
+        </header>
+        <main>
+            <form method="POST" enctype="multipart/form-data">
+                <div class="file-upload">
+                    <input type="file" name="file" id="file" accept=".txt" required>
+                </div>
+                <div class="checkbox-container">
+                    <input type="checkbox" id="remove_duplicates" name="remove_duplicates">
+                    <label for="remove_duplicates">Remove duplicates</label>
+                </div>
+                <button type="submit">Convert</button>
+            </form>
+            {% if error %}
+            <p class="error">{{ error }}</p>
+            {% endif %}
+
+            <details class="info-section">
+                <summary>How to use & Limitations</summary>
+                <div class="info-content">
+                    <h3>How to use</h3>
+                    <h4>Step 1: Export "App in the Air" data</h4>
+                    <p>In the "App in the Air" app: <strong>Profile | Settings | Export account</strong>.</p>
+                    <p>You will then receive <em>an email</em> containing your full data export in a file named <code>data.txt</code>. This is the file you will need to upload to this converter.</p>
+
+                    <h4>Step 2: Upload and Convert the file</h4>
+                    <p>On this website:</p>
+                    <ol>
+                        <li>Click the "Choose a file" button and select your <code>data.txt</code> file.</li>
+                        <li>If you want to remove duplicate flights, check the "Remove duplicates" box.</li>
+                        <li>Click the "Convert" button to process your file.</li>
+                        <li>Once processed, the converted file will be automatically downloaded.</li>
+                    </ol>
+
+                    <h4>Step 3: Upload the result to MyFlightradar24</h4>
+                    <p>Upload the converter's output (the downloaded CSV file) to <a href="https://my.flightradar24.com/settings/import" target="_blank" rel="noopener noreferrer">https://my.flightradar24.com/settings/import</a></p>
+
+                    <h3>Limitations and quirks</h3>
+                    <ul>
+                        <li>Despite claiming to accept Openflights.org export format, MyFlightradar24 doesn't always correctly recognize the airline and the aircraft model from the openflights export.</li>
+                        <li>MyFlightradar24 doesn't accept IATA/ICAO codes for airlines/planes, but rather relies on internal ids or full names.</li>
+                        <li>Their internal ids don't match with the openflights database, and are not easily accessible.</li>
+                        <li>Full names in the openflights db <em>mostly</em> match MyFR24's expected names, but not always.</li>
+                        <li>Manually created <code>data/extra_airlines.dat</code> and <code>data/extra_planes.dat</code> provide overrides or additions to the openflights db.</li>
+                        <li>These files are not exhaustive, and your export may contain mismatched airlines or planes.</li>
+                    </ul>
+
+                    <h4>Known issues:</h4>
+                    <ul>
+                        <li>Boeing 737 MAX cannot be added to MyFR24. The right spelling for import script recognition is unknown.</li>
+                        <li>Wrong airline name can be picked in case of an IATA code conflict.</li>
+                        <li>The script ignores <code>Ownership.MINE</code> and <code>Ownership.NOT_MINE</code> flags and adds all flights to the output.</li>
+                    </ul>
+
+                    <h3>Acknowledgments</h3>
+                    <p>This converter uses airlines and planes databases provided by Openflights. We are very thankful to OpenFlights for maintaining and publishing the data.</p>
+                </div>
+            </details>
+        </main>
+        <footer>
+            <p>View the <a href="https://github.com/ffuuugor/myfr24-converter" target="_blank" rel="noopener noreferrer">source code on GitHub</a></p>
+        </footer>
+    </div>
+</body>
+</html>
