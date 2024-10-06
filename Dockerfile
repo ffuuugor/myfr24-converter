@@ -23,7 +23,7 @@ RUN apt-get update && \
     apt-get install -y nginx curl && \
     rm -rf /var/lib/apt/lists/*
 
-RUN pip install --no-cache-dir --no-warn-script-location gunicorn
+RUN pip install --no-cache-dir --no-warn-script-location gunicorn==23.0.0
 
 COPY nginx.conf /etc/nginx/nginx.conf
 
