@@ -49,6 +49,50 @@ Some known issues:
 actually exists and would pick the *last* matching airline in the openflights database. 
 * The script ignores `Ownership.MINE` and `Ownership.NOT_MINE` flags and adds all the flights to the output regardless
 
+## Server Deployment
+
+To deploy the MyFR24 Converter as a web application, follow these steps:
+
+1. Ensure you have Podman installed on your system. If not, install it following the instructions for your operating system.
+
+2. Clone the repository:
+   ```
+   git clone https://github.com/ffuuugor/myfr24-converter.git
+   cd myfr24-converter
+   ```
+
+3. Build the Docker image:
+   ```
+   podman build -t myfr24-converter .
+   ```
+
+4. Run the container with host networking:
+   ```
+   podman run -d --network host --name myfr24-converter myfr24-converter
+   ```
+
+5. The application should now be accessible at `http://localhost:80`. If you're deploying on a remote server, replace `localhost` with your server's IP address or domain name.
+
+6. To stop the container:
+   ```
+   podman stop myfr24-converter
+   ```
+
+7. To start the container again:
+   ```
+   podman start myfr24-converter
+   ```
+
+8. If you need to rebuild the image after making changes:
+   ```
+   podman stop myfr24-converter
+   podman rm myfr24-converter
+   podman build -t myfr24-converter .
+   podman run -d --network host --name myfr24-converter myfr24-converter
+   ```
+
+Note: Using host networking (`--network host`) means the container will use the host's network stack directly. This is simpler for deployment but may not be suitable for all production environments. For more complex setups, consider using port mapping and configuring your host's firewall appropriately.
+
 ## Acknowledgments
 
 As a first step in its execution, the script will download airlines 
